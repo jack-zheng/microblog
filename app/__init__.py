@@ -1,3 +1,4 @@
+from flask_bootstrap import Bootstrap
 from flask_mail import Mail
 from logging.handlers import RotatingFileHandler
 import os
@@ -17,6 +18,7 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
 mail = Mail(app)
+bootstrap = Bootstrap(app)
 
 if not app.debug:
     if app.config['MAIL_SERVER']:
