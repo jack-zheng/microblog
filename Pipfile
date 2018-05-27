@@ -9,6 +9,8 @@ flask = "*"
 flask-migrate = "*"
 flask-login = "*"
 flask-wtf = "*"
+pyjwt = "*"
+flask-mail = "*"
 
 [dev-packages]
 ipython = "*"

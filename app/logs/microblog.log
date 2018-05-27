@@ -71,3 +71,6 @@ Traceback (most recent call last):
   File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
     cursor.execute(statement, parameters)
 sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username [SQL: 'UPDATE user SET username=?, about_me=? WHERE user.id = ?'] [parameters: ('sasa', 'hello world!!', 1)] (Background on this error at: http://sqlalche.me/e/gkpj)
+2018-05-27 17:07:36,495 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:47]
+2018-05-27 17:07:54,701 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:47]
+2018-05-27 17:15:25,378 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:47]
