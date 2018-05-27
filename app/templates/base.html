@@ -53,3 +53,7 @@
     </div>
 {% endblock %}
 
+{% block scriptes %}
+	{{ super() }}
+	{{ moment.include_moment() }}
+{% endblock %}
