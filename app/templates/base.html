@@ -4,7 +4,7 @@
 	{% if title %}
 		{{ title }} - Microblog
 	{% else %}
-		Welcome to Microblog
+	{{ _('Welcome to Microblog') }}
 	{% endif %}
 {% endblock %}
 
@@ -56,4 +56,5 @@
 {% block scripts %}
     {{ super() }}
     {{ moment.include_moment() }}
+		{{ moment.lang(g.locale) }}
 {% endblock %}

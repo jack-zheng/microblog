@@ -1,9 +1,4 @@
-2018-05-27 16:54:49,030 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:47]
-2018-05-27 16:59:02,555 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:47]
-2018-05-27 17:05:55,748 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:47]
-2018-05-27 17:28:56,975 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:47]
-2018-05-27 18:16:56,886 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:47]
-2018-05-27 18:18:24,084 ERROR: Exception on /reset_password_request [POST] [in /home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py:1761]
+2018-05-27 18:24:11,815 ERROR: Exception on /reset_password_request [POST] [in /home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -19,12 +14,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/jack/gitStore/microblog/app/routes.py", line 165, in reset_password_request
     send_password_reset_email(user)
-  File "/home/jack/gitStore/microblog/app/email.py", line 12, in send_password_reset_email
-    token = user.get_reset_password_token()
-  File "/home/jack/gitStore/microblog/app/models.py", line 70, in get_reset_password_token
-    app.config['SECURET_KEY'], algorithm='HS256').decode('utf-8')
-KeyError: 'SECURET_KEY'
-2018-05-27 18:18:52,952 ERROR: Exception on /reset_password_request [POST] [in /home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/jack/gitStore/microblog/app/email.py", line 16, in send_password_reset_email
+    text_body=render_template('email/reset_password.txt',
+NameError: name 'render_template' is not defined
+2018-05-27 18:24:50,903 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:47]
+2018-05-27 18:24:59,387 ERROR: Exception on /reset_password_request [POST] [in /home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -40,13 +34,21 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/jack/gitStore/microblog/app/routes.py", line 165, in reset_password_request
     send_password_reset_email(user)
-  File "/home/jack/gitStore/microblog/app/email.py", line 12, in send_password_reset_email
-    token = user.get_reset_password_token()
-  File "/home/jack/gitStore/microblog/app/models.py", line 70, in get_reset_password_token
-    app.config['SECURET_KEY'], algorithm='HS256').decode('utf-8')
-KeyError: 'SECURET_KEY'
-2018-05-27 18:20:48,756 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:47]
-2018-05-27 18:21:01,802 ERROR: Exception on /reset_password_request [POST] [in /home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/jack/gitStore/microblog/app/email.py", line 20, in send_password_reset_email
+    user=user, token=token))
+  File "/home/jack/gitStore/microblog/app/email.py", line 10, in send_email
+    mail.send(msg)
+  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask_mail.py", line 492, in send
+    message.send(connection)
+  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask_mail.py", line 427, in send
+    connection.send(self)
+  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask_mail.py", line 192, in send
+    message.rcpt_options)
+  File "/usr/lib64/python3.6/smtplib.py", line 867, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'Mail from must equal authorized user', 'lanmoeli0124@163.com')
+2018-05-27 18:27:13,079 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:47]
+2018-05-27 18:27:23,300 ERROR: Exception on /reset_password_request [POST] [in /home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -62,46 +64,17 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/jack/gitStore/microblog/app/routes.py", line 165, in reset_password_request
     send_password_reset_email(user)
-  File "/home/jack/gitStore/microblog/app/email.py", line 13, in send_password_reset_email
-    send_mail('[Microblog] Reset Your Password',
-NameError: name 'send_mail' is not defined
-2018-05-27 18:21:21,721 ERROR: Exception on /reset_password_request [POST] [in /home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/jack/gitStore/microblog/app/routes.py", line 165, in reset_password_request
-    send_password_reset_email(user)
-  File "/home/jack/gitStore/microblog/app/email.py", line 13, in send_password_reset_email
-    send_mail('[Microblog] Reset Your Password',
-NameError: name 'send_mail' is not defined
-2018-05-27 18:23:02,220 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:47]
-2018-05-27 18:23:12,322 ERROR: Exception on /reset_password_request [POST] [in /home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/jack/gitStore/microblog/app/routes.py", line 165, in reset_password_request
-    send_password_reset_email(user)
-  File "/home/jack/gitStore/microblog/app/email.py", line 14, in send_password_reset_email
-    sender=app.config['ADMINS'][0],
-NameError: name 'app' is not defined
-2018-05-27 18:24:03,108 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:47]
+  File "/home/jack/gitStore/microblog/app/email.py", line 20, in send_password_reset_email
+    user=user, token=token))
+  File "/home/jack/gitStore/microblog/app/email.py", line 10, in send_email
+    mail.send(msg)
+  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask_mail.py", line 492, in send
+    message.send(connection)
+  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask_mail.py", line 427, in send
+    connection.send(self)
+  File "/home/jack/.local/share/virtualenvs/microblog-bjOLqTYM/lib/python3.6/site-packages/flask_mail.py", line 192, in send
+    message.rcpt_options)
+  File "/usr/lib64/python3.6/smtplib.py", line 867, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'Mail from must equal authorized user', 'lanmoleii0124@163.com')
+2018-05-28 20:06:07,098 INFO: Microblog startup [in /home/jack/gitStore/microblog/app/__init__.py:54]

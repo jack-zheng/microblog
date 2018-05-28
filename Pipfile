@@ -11,6 +11,7 @@ flask-login = "*"
 flask-wtf = "*"
 pyjwt = "*"
 flask-mail = "*"
+flask-babel = "*"
 
 [dev-packages]
 ipython = "*"
